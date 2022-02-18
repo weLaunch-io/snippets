@@ -13,6 +13,7 @@
 	- [wp_postmeta '_edit_lock' and  '_edit_last' rows](#wp_postmeta-_edit_lock-and--_edit_last-rows)
 	- [wp_options '_transient_' rows](#wp_options-transient-rows)
 	- [wp_posts revisions](#wp_posts-revisions)
+- [Orphaned Term Relationships](#orphaned-term-relationships)
 
 ## Orphan rows
 Since WordPress uses MyISAM for it's storage engine, we don't get foreign keys relationships as offered by InnoDB/etc. - thus orphan rows can show themselves over time.
@@ -183,7 +184,7 @@ WHERE
 
 You may need to run the [wp_postmeta -> wp_posts](#wp_postmeta---wp_posts) orphans query after cleaning up revisions.
 
-### Orphaned Term Relationships
+## Orphaned Term Relationships
 Step 1: Delete Term Relationships
 I had already deleted all posts and postmeta, but the links between those post IDs and my taxonomies still existed.  The first step was to clean this up.
 ```
