@@ -39,8 +39,17 @@ WHERE (wp_posts.ID IS NULL)
 
 DELETE wp_postmeta FROM wp_postmeta
 LEFT JOIN wp_posts ON (wp_postmeta.post_id = wp_posts.ID)
-WHERE (wp_posts.ID IS NULL)
+WHERE (wp_posts.ID IS NULL)e
 ```
+
+### empty post metas
+WP will return false anyway if post meta not exists.
+
+```sql
+DELETE FROM wp_postmeta WHERE meta_value = NULL OR meta_value = ""
+```
+
+
 
 ### wp_term_taxonomy -> wp_terms
 
