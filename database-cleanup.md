@@ -39,7 +39,7 @@ WHERE (wp_posts.ID IS NULL)
 
 DELETE wp_postmeta FROM wp_postmeta
 LEFT JOIN wp_posts ON (wp_postmeta.post_id = wp_posts.ID)
-WHERE (wp_posts.ID IS NULL)e
+WHERE (wp_posts.ID IS NULL)
 ```
 
 ### empty post metas
@@ -90,6 +90,7 @@ WHERE (wp_users.ID IS NULL)
 ```
 
 ### wp_posts -> wp_users
+Delete posts where the user was deleted. Use with caution, old posts still may be used.
 
 ```sql
 SELECT * FROM wp_posts
